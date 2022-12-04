@@ -4,6 +4,8 @@ import getopt
 import shutil
 from pathlib import Path
 from aocd import get_data
+from aocd.exceptions import PuzzleLockedError
+
 
 if __name__ == "__main__":
 
@@ -48,6 +50,11 @@ if __name__ == "__main__":
         with open(path / f"day{str_day}" / "input.txt", "w") as f:
             f.write(data)
 
-    except FileExistsError:
-        print("Impossible to create a day that already exist to avoid deleting works.")
+    except FileExistsError as e:
+        print(f"{e} to avoid deleting work done.")
+        sys.exit(2)
+
+    except PuzzleLockedError as e:
+        print(f"{e}. Deleting the folder to avoid FileExistError")
+        shutil.rmtree(path / f"day{str_day}")
         sys.exit(2)
