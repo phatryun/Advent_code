@@ -28,7 +28,7 @@ def part_2(data):
 
 if __name__ == "__main__":
 
-    ex = ""  # "_ex"
+    ex = "_ex"  # "_ex"
 
     path = Path(__file__).parent.resolve()
 
