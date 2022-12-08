@@ -29,7 +29,7 @@ def get_list_cal_elves(data):
         cal += int(val)
     list_elves_Calories.append((i_elve, cal))
 
-    list_elves_Calories.sort(key = lambda x: -x[1])
+    list_elves_Calories.sort(key=lambda x: -x[1])
     return list_elves_Calories
 
 

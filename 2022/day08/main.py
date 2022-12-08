@@ -1,16 +1,17 @@
 import numpy as np
 from pathlib import Path
 
+
 def split_data(str_file_path):
     with open(str_file_path) as f:
-        lines = [[int(e) for e in line.rstrip()] for line in f ]
+        lines = [[int(e) for e in line.rstrip()] for line in f]
 
     return np.array(lines)
 
 
 def part_1(data):
     """
-    
+
     """
     nb_line = len(data)
     nb_col = len(data[1, :])
@@ -31,10 +32,11 @@ def part_1(data):
 
             if tree_height > min_height_neiourgh:
                 res += 1
-                
+
     print(res)
 
     return True
+
 
 def count_viewed_tree(x, array):
     tmp = [0 if x > e else 1 for e in array]
@@ -46,13 +48,11 @@ def count_viewed_tree(x, array):
     if len(tmp) < len(array):
         res += 1
 
-
     return res
 
 
 def part_2(data):
     """
-    
     """
     nb_line = len(data)
     nb_col = len(data[1, :])
@@ -62,7 +62,7 @@ def part_2(data):
     for i_line in range(0, nb_line):
         for i_col in range(1, nb_col):
             tree_height = data[i_line, i_col]
-            
+
             tree_score = 1
             # Left
             tree_score *= count_viewed_tree(tree_height, np.flip(data[i_line, 0:i_col]))

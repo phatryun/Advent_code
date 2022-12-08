@@ -1,6 +1,7 @@
 import numpy as np
 from pathlib import Path
 
+
 def split_data(str_file_path):
     with open(str_file_path) as f:
         lines = [line.rstrip() for line in f]
@@ -10,7 +11,7 @@ def split_data(str_file_path):
 
 def part_1(data):
     """
-    
+
     """
     # for i in range(len(data)):
 
@@ -19,7 +20,7 @@ def part_1(data):
 
 def part_2(data):
     """
-    
+
     """
     # for i in range(len(data)):
 

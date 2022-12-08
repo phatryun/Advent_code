@@ -10,13 +10,13 @@ from aocd.exceptions import PuzzleLockedError
 if __name__ == "__main__":
 
     try:
-        opts, args = getopt.getopt(sys.argv[1:],"d:")
+        opts, args = getopt.getopt(sys.argv[1:], "d:")
     except getopt.GetoptError:
         print('Please provide -d <day> args to create the right directory')
         sys.exit(2)
 
     dict_opt = {elt[0]: elt[1] for elt in opts}
-    
+
     if "-d" not in dict_opt.keys():
         print("Please provide -d <day> args to create the right directory")
         sys.exit(2)
@@ -25,7 +25,7 @@ if __name__ == "__main__":
         sys.exit(2)
 
     int_day = int(dict_opt['-d'])
-    str_day = f"{int_day:02}"    
+    str_day = f"{int_day:02}"
     print(f"day: {str_day}")
 
     path = Path(__file__).parent.resolve()
@@ -36,7 +36,7 @@ if __name__ == "__main__":
 
         # copy template and rename it
         original = path / "template.py"
-        target = path / f"day{str_day}" / "main.py" 
+        target = path / f"day{str_day}" / "main.py"
         shutil.copyfile(original, target)
 
         # create input.txt input_ex.txt
@@ -44,7 +44,7 @@ if __name__ == "__main__":
         f_ex.close()
         f = open(path / f"day{str_day}" / "input.txt", "w")
         f.close()
-        
+
         # fill input.txt --> https://github.com/wimglenn/advent-of-code-data
         data = get_data(day=int_day, year=2022)
         with open(path / f"day{str_day}" / "input.txt", "w") as f:

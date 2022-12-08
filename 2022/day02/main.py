@@ -1,6 +1,7 @@
 import numpy as np
 from pathlib import Path
 
+
 def split_data(str_file_path):
     """
         Function that get data
@@ -10,13 +11,14 @@ def split_data(str_file_path):
 
     return np.array(lines)
 
+
 RPS_points = {
-    "val":{
+    "val": {
         'A': 1,
         'B': 2,
         'C': 3
     },
-    'res':{
+    'res': {
         'win': 6,
         'draw': 3,
         'loose': 0
@@ -24,12 +26,12 @@ RPS_points = {
 }
 
 RPS_rules = {
-    "trad":{
+    "trad": {
         'X': 'A',
         'Y': 'B',
         'Z': 'C'
     },
-    "win":{
+    "win": {
         'A': 'B',
         'B': 'C',
         'C': 'A'
@@ -37,27 +39,28 @@ RPS_rules = {
 }
 
 RPS_rules_2 = {
-    "trad":{
+    "trad": {
         'X': 'loose',
         'Y': 'draw',
         'Z': 'win'
     },
-    "win":{
+    "win": {
         'A': 'B',
         'B': 'C',
         'C': 'A'
     },
-    "draw":{
+    "draw": {
         'A': 'A',
         'B': 'B',
         'C': 'C'
     },
-    "loose":{
+    "loose": {
         'A': 'C',
         'B': 'A',
         'C': 'B'
     }
 }
+
 
 def part_1(data):
     """

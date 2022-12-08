@@ -2,6 +2,7 @@ import string
 import numpy as np
 from pathlib import Path
 
+
 def split_data(str_file_path):
     with open(str_file_path) as f:
         lines = [line.rstrip() for line in f]
@@ -13,9 +14,10 @@ def split_half(rucksack):
     half = len(rucksack) // 2
     return rucksack[:half], rucksack[half:]
 
+
 def part_1(data):
     """
-    
+
     """
     sum_priorities = 0
     for i in range(len(data)):
@@ -35,7 +37,7 @@ def part_1(data):
 
 def part_2(data):
     """
-    
+
     """
     sum_priorities = 0
     i = 0
@@ -46,7 +48,7 @@ def part_2(data):
 
         set_duplicates = set(first_elve).intersection(secon_elve)
         set_duplicates = set(set_duplicates).intersection(third_elve)
-        
+
         badge = set_duplicates.pop()
 
         # print(f"{first_elve}, {secon_elve}, {third_elve} == {duplicates}")
@@ -58,8 +60,6 @@ def part_2(data):
         i += 3
 
     print(sum_priorities)
-
-
 
     return True
 

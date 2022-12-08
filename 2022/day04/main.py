@@ -1,6 +1,7 @@
 import numpy as np
 from pathlib import Path
 
+
 def split_data(str_file_path):
     with open(str_file_path) as f:
         lines = [line.rstrip() for line in f]
@@ -10,7 +11,7 @@ def split_data(str_file_path):
 
 def part_1(data):
     """
-    
+
     """
 
     count_overlap = 0
@@ -18,13 +19,12 @@ def part_1(data):
     for pair in data:
         elves_1, elves_2 = [
             set(range(int(elt.split('-')[0]), int(elt.split('-')[1]) + 1))
-                for elt in pair.split(",")
+            for elt in pair.split(",")
         ]
         itersection = set(elves_1).intersection(elves_2)
 
         if itersection == elves_1 or itersection == elves_2:
             count_overlap += 1
-
 
     print(f"count_overlap: {count_overlap}")
 
@@ -33,20 +33,19 @@ def part_1(data):
 
 def part_2(data):
     """
-    
+
     """
     count_overlap = 0
 
     for pair in data:
         elves_1, elves_2 = [
             set(range(int(elt.split('-')[0]), int(elt.split('-')[1]) + 1))
-                for elt in pair.split(",")
+            for elt in pair.split(",")
         ]
         itersection = set(elves_1).intersection(elves_2)
-        
+
         if itersection:
             count_overlap += 1
-
 
     print(f"count_overlap: {count_overlap}")
 

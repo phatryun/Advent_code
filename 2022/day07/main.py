@@ -4,11 +4,12 @@ from pathlib import Path
 
 from fileSystem import FileSystem
 
+
 def split_data(str_file_path):
 
     with open(str_file_path) as f:
         lines = [cmd.split('\n') for cmd in f.read().split("$ ")]
-        
+
     return lines
 
 
@@ -27,7 +28,7 @@ def create_filesystem(data):
                 actual_path = "/".join(actual_path.split('/')[:-1])
             else:
                 actual_path += f"/{dir}"
-            
+
         elif cmd[0].startswith("ls"):
             actual_file_system = dict_file_system[actual_path]
             list_children = list()
@@ -46,12 +47,13 @@ def create_filesystem(data):
 
             actual_file_system.set_children(list_children)
             dict_file_system[actual_path] = actual_file_system
-            
+
         else:
             # do nothing
             continue
-    
+
     return dict_file_system
+
 
 def part_1(dict_file_system):
     """
@@ -63,7 +65,7 @@ def part_1(dict_file_system):
         dir_size = dict_file_system[folder].calculate_dir_size()
         if dir_size <= 100000:
             res += dir_size
-            
+
     print(res)
 
     return True
@@ -71,7 +73,6 @@ def part_1(dict_file_system):
 
 def part_2(dict_file_system):
     """
-    
     """
     disk_size = 70000000
     min_space_needed = 30000000
@@ -81,7 +82,7 @@ def part_2(dict_file_system):
 
     print(f"unused space: {disk_size-root_size} -- {space_needed} needed")
 
-    list_dir_candidate = list() 
+    list_dir_candidate = list()
 
     for folder in dict_file_system:
         dir_size = dict_file_system[folder].calculate_dir_size()

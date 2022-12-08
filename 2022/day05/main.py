@@ -2,9 +2,9 @@ import re
 from pathlib import Path
 from copy import deepcopy
 
+
 def split_data(str_file_path):
-    
-    
+
     crates_stacks_raw = []
     rearrg_process = []
 
@@ -13,11 +13,11 @@ def split_data(str_file_path):
 
         for line in f:
             line_val = line.rstrip()
-            # the empty line delimit stacks than process 
+            # the empty line delimit stacks than process
             if not line_val:
                 rearrangement = True
                 continue
-            
+
             if rearrangement:
                 rearrg_process.append(line_val)
             else:
@@ -40,26 +40,26 @@ def split_data(str_file_path):
                 val = crates_stacks_raw[i_stack][dict_position[key]]
                 if val != " ":
                     dict_crates_stacks[key].append(val)
-    
+
     # print(dict_crates_stacks)
-    
+
     # handle rearranging process
     list_process = []
     regex = r'move (\d+) from (\d+) to (\d+)'
     for process in rearrg_process:
         all_val = [int(x) for x in re.findall(regex, process)[0]]
         list_process.append(all_val)
-    
+
     return dict_crates_stacks, list_process
 
 
 def part_1(data):
     """
-    
+
     """
     dict_crates_stacks, list_process = data
     # print(dict_crates_stacks)
-    
+
     for process in list_process:
         count_crates, from_stack, to_stact = process
         # print(f"move {count_crates} from {from_stack} to {to_stact}")
@@ -75,11 +75,10 @@ def part_1(data):
 
 def part_2(data):
     """
-    
+
     """
     dict_crates_stacks, list_process = data
-    # print(dict_crates_stacks)
-    
+
     for process in list_process:
         count_crates, from_stack, to_stact = process
         # print(f"move {count_crates} from {from_stack} to {to_stact}")
@@ -96,7 +95,6 @@ def part_2(data):
     print(f"solution: {''.join(res)}")
 
     return True
-
 
 
 if __name__ == "__main__":
